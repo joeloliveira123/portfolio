@@ -57,6 +57,26 @@ const PROJECTS = [
     urlLabel: "Online"
   },
   {
+    id: "brasa-e-corte",
+    title: "Brasa & Corte — Gastronomia na Brasa",
+    category: "web-negocios",
+    categoryLabel: "Web & Negócios",
+    status: "Online · Vercel",
+    featured: false,
+    tagline:
+      "Site gastronômico editorial e cardápio digital interativo com busca automática por CEP, carrinho em tempo real e painel administrativo.",
+    description:
+      "MVP web em Next.js, TypeScript, Tailwind CSS e Supabase com design editorial em Playfair Display, Hero cinematográfico, galeria em mosaico com lightbox, filtro por categorias via URL, autopreenchimento de endereço por CEP (ViaCEP/BrasilAPI) e painel administrativo protegido por RLS.",
+    highlights: [
+      "Design editorial escuro com tipografia Playfair Display e galeria interativa com lightbox",
+      "Cardápio digital com filtros por categoria, busca e carrinho persistente em tempo real",
+      "Busca automática de endereço por CEP integrada à ViaCEP e BrasilAPI",
+      "Painel administrativo completo com Supabase Auth, RLS e fallback demonstrativo"
+    ],
+    liveUrl: "https://brasa-e-corte.vercel.app",
+    urlLabel: "Online"
+  },
+  {
     id: "quadra-lab",
     title: "Quadra Lab Enterprise",
     category: "esportes",
@@ -163,9 +183,6 @@ function renderProjects() {
   filtered.forEach((project, idx) => {
     const card = document.createElement("article");
     const isFeatured = idx === 0;
-    card.tabIndex = 0;
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-label", `Ver detalhes de ${project.title}`);
 
     const statusClass = project.urlLabel === "Online" ? "status-dot" : "status-dot local";
     const displayHost = project.liveUrl.replace(/^https?:\/\//, "");
@@ -277,12 +294,6 @@ function renderProjects() {
     });
 
     card.addEventListener("click", () => openModal(project));
-    card.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        openModal(project);
-      }
-    });
 
     gridEl.appendChild(card);
   });
