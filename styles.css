@@ -981,6 +981,28 @@ button:focus-visible {
   font-size: 0.92rem;
 }
 
+.cta-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(5, 8, 20, 0.55);
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--blue-soft);
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.cta-email:hover {
+  border-color: var(--blue-bright);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
 /* FOOTER */
 .footer {
   border-top: 1px solid var(--border);
