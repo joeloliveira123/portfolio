@@ -38,23 +38,23 @@ const PROJECTS = [
     urlLabel: "Online"
   },
   {
-    id: "parada-gaucha",
-    title: "Churrascaria Parada Gaúcha",
+    id: "churrascaria-digital",
+    title: "Churrascaria Digital — Fogo & Brasa",
     category: "web-negocios",
     categoryLabel: "Web & Negócios",
-    status: "Demonstração Local",
+    status: "Online",
     tagline:
-      "Site comercial e cardápio digital com carrinho, preenchimento de endereço por CEP e pedido pronto no WhatsApp sem taxas.",
+      "Plataforma multi-tenant completa para churrascarias: Delivery, Retirada, Salão, Rodízio, KDS da Cozinha, Caixa e Editor de Panfletos.",
     description:
-      "Sistema comercial mobile-first criado para restaurantes e churrascarias receberem pedidos diretamente pelo site sem depender de taxas de aplicativos terceiros, com painel administrativo próprio para gerenciar pratos, promoções e fotos.",
+      "Sistema full-stack em Next.js, TypeScript e Supabase construído em arquitetura multi-tenant com isolamento por restaurante, RBAC de 7 perfis, cálculo de pedidos no servidor, integração WhatsApp, reservas com controle de capacidade, frente de caixa, estoque, CRM (LGPD) e exportação de panfletos em PNG.",
     highlights: [
-      "Cardápio digital com categorias, destaques e promoções do dia",
-      "Carrinho com busca automática de endereço por CEP",
-      "Envio do pedido formatado direto para o WhatsApp da loja",
-      "Painel administrativo protegido para atualizar produtos e preços"
+      "Cardápio digital, carrinho persistente, checkout com ViaCEP, zonas de entrega e resumo no WhatsApp",
+      "Operação em tempo real com gestão de pedidos, fila da cozinha (KDS) e notificações",
+      "Salão com mapa de mesas, comandas, QR Code validado no servidor, rodízio e reservas",
+      "Caixa, controle de estoque, CRM com consentimento LGPD, relatórios e editor de panfletos PNG"
     ],
-    liveUrl: "http://localhost:3005",
-    urlLabel: "Local"
+    liveUrl: "https://churrascaria-digital.vercel.app",
+    urlLabel: "Online"
   },
   {
     id: "quadra-lab",
@@ -160,20 +160,94 @@ function renderProjects() {
 
   gridEl.innerHTML = "";
 
-  filtered.forEach((project) => {
+  filtered.forEach((project, idx) => {
     const card = document.createElement("article");
-    card.className = "project-card";
+    const isFeatured = idx === 0;
     card.tabIndex = 0;
     card.setAttribute("role", "button");
     card.setAttribute("aria-label", `Ver detalhes de ${project.title}`);
 
     const statusClass = project.urlLabel === "Online" ? "status-dot" : "status-dot local";
     const displayHost = project.liveUrl.replace(/^https?:\/\//, "");
+    const numLabel = String(idx + 1).padStart(2, "0");
 
-    card.innerHTML = `
+    const previewHtml = isFeatured
+      ? `
+        <div class="card-preview" aria-hidden="true">
+          <div class="mockup-phone">
+            <div class="mockup-orb"></div>
+            <div class="mockup-line accent"></div>
+            <div class="mockup-line"></div>
+            <div class="mockup-line"></div>
+          </div>
+          <div class="mockup-phone dark">
+            <div class="mockup-orb"></div>
+            <div class="mockup-line accent"></div>
+            <div class="mockup-line"></div>
+            <div class="mockup-line"></div>
+          </div>
+        </div>
+      `
+      : idx === 1
+        ? `
+        <div class="card-mini-visual ring-visual" aria-hidden="true">
+          <div class="blue-ring"></div>
+        </div>
+      `
+        : idx === 2
+          ? `
+        <div class="card-mini-visual chart-visual" aria-hidden="true">
+          <svg viewBox="0 0 120 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 46 C22 44, 28 22, 44 26 C58 30, 66 12, 82 18 C96 24, 104 8, 114 10" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M6 46 C22 44, 28 22, 44 26 C58 30, 66 12, 82 18 C96 24, 104 8, 114 10 L114 54 L6 54 Z" fill="url(#miniChartFill)"/>
+            <defs>
+              <linearGradient id="miniChartFill" x1="0" y1="8" x2="0" y2="54" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      `
+          : "";
+
+    card.className = isFeatured
+      ? "project-card is-featured"
+      : idx === 1 || idx === 2
+        ? "project-card is-compact-split"
+        : "project-card";
+
+    card.innerHTML = idx === 1 || idx === 2
+      ? `
+      <div class="compact-split-body">
+        ${previewHtml}
+        <div class="compact-split-info">
+          <div class="card-top">
+            <span class="card-category">${numLabel} / ${project.categoryLabel}</span>
+            <span class="${statusClass}">${project.status}</span>
+          </div>
+          <h3 class="card-title">${project.title}</h3>
+          <p class="card-tagline">${project.tagline}</p>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a
+          href="${project.liveUrl}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-visit-link"
+        >
+          ${displayHost} <span aria-hidden="true">↗</span>
+        </a>
+        <button type="button" class="card-details-btn">Detalhes</button>
+      </div>
+    `
+      : `
       <div>
+        ${previewHtml}
         <div class="card-top">
-          <span class="card-category">${project.categoryLabel}</span>
+          <span class="card-category">${numLabel} / ${project.categoryLabel}</span>
           <span class="${statusClass}">${project.status}</span>
         </div>
         <h3 class="card-title">${project.title}</h3>
@@ -263,4 +337,110 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+const GITHUB_USER = "joeloliveira123";
+const GITHUB_CACHE_KEY = "jo_github_lang_metrics_v1";
+const GITHUB_CACHE_TTL_MS = 60 * 60 * 1000;
+
+const LANG_COLORS = {
+  TypeScript: "#3B82F6",
+  HTML: "#60A5FA",
+  JavaScript: "#38BDF8",
+  CSS: "#2563EB",
+  Python: "#22D3EE",
+  Outros: "#475569"
+};
+
+const GITHUB_LANG_FALLBACK = {
+  repoCount: 11,
+  languages: [
+    { name: "TypeScript", percent: 43.4 },
+    { name: "HTML", percent: 26.9 },
+    { name: "JavaScript", percent: 13.1 },
+    { name: "CSS", percent: 11.4 },
+    { name: "Python", percent: 4.8 }
+  ]
+};
+
+function renderGitHubMetrics(metrics) {
+  const container = document.getElementById("github-metrics");
+  if (!container) return;
+
+  const barHtml = metrics.languages
+    .map((lang) => {
+      const color = LANG_COLORS[lang.name] || LANG_COLORS.Outros;
+      return `<span class="lang-segment" style="width: ${lang.percent}%; background: ${color};" title="${lang.name}: ${lang.percent}%"></span>`;
+    })
+    .join("");
+
+  const legendHtml = metrics.languages
+    .map((lang) => {
+      const color = LANG_COLORS[lang.name] || LANG_COLORS.Outros;
+      return `
+        <span class="lang-item">
+          <span class="lang-swatch" style="background: ${color};"></span>
+          <strong>${lang.name}</strong> ${lang.percent.toFixed(1).replace(".", ",")}%
+        </span>
+      `;
+    })
+    .join("");
+
+  container.innerHTML = `
+    <div class="gh-metrics-head">
+      <span>GITHUB • ${metrics.repoCount} REPOSITÓRIOS</span>
+      <a href="https://github.com/${GITHUB_USER}" target="_blank" rel="noopener noreferrer">@${GITHUB_USER} ↗</a>
+    </div>
+    <div class="lang-bar" role="img" aria-label="Distribuição de linguagens no GitHub">${barHtml}</div>
+    <div class="lang-legend">${legendHtml}</div>
+  `;
+}
+
+async function loadGitHubMetrics() {
+  renderGitHubMetrics(GITHUB_LANG_FALLBACK);
+
+  try {
+    const cachedRaw = localStorage.getItem(GITHUB_CACHE_KEY);
+    if (cachedRaw) {
+      const cached = JSON.parse(cachedRaw);
+      if (Date.now() - cached.timestamp < GITHUB_CACHE_TTL_MS && cached.data?.languages?.length) {
+        renderGitHubMetrics(cached.data);
+        return;
+      }
+    }
+
+    const reposRes = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100`);
+    if (!reposRes.ok) return;
+    const repos = (await reposRes.json()).filter((r) => !r.fork);
+    if (!repos.length) return;
+
+    const langResponses = await Promise.all(
+      repos.map((r) => fetch(r.languages_url).then((res) => (res.ok ? res.json() : {})))
+    );
+
+    const totals = {};
+    langResponses.forEach((langs) => {
+      Object.entries(langs).forEach(([name, bytes]) => {
+        totals[name] = (totals[name] || 0) + bytes;
+      });
+    });
+
+    const sum = Object.values(totals).reduce((acc, v) => acc + v, 0);
+    if (!sum) return;
+
+    const languages = Object.entries(totals)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([name, bytes]) => ({
+        name,
+        percent: Number(((bytes / sum) * 100).toFixed(1))
+      }));
+
+    const data = { repoCount: repos.length, languages };
+    localStorage.setItem(GITHUB_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data }));
+    renderGitHubMetrics(data);
+  } catch {
+    // Mantém os dados embutidos caso a API do GitHub esteja indisponível ou com rate limit.
+  }
+}
+
 renderProjects();
+loadGitHubMetrics();

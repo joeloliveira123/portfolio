@@ -3,21 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Joel Oliveira. — Desenvolvimento de Sites</title>
+    <title>Joel Oliveira. — Desenvolvimento de Sites &amp; Sistemas Web</title>
     <meta
       name="description"
-      content="Joel Oliveira — Desenvolvimento de sites modernos, rápidos e estratégicos para negócios locais."
+      content="Joel Oliveira — Desenvolvimento de sites modernos, sistemas web rápidos e soluções digitais estratégicas para negócios locais."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
     <!-- HEADER -->
     <header class="topbar">
       <div class="container topbar-inner">
@@ -26,8 +29,8 @@
             <defs>
               <linearGradient id="joGradient" x1="0%" y1="100%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="#FFFFFF" />
-                <stop offset="45%" stop-color="#7DD3FC" />
-                <stop offset="100%" stop-color="#0066FF" />
+                <stop offset="45%" stop-color="#93C5FD" />
+                <stop offset="100%" stop-color="#3B82F6" />
               </linearGradient>
             </defs>
             <path d="M58 38 V104 C58 130 43 144 23 144 C8 144 -3 136 -9 124" transform="translate(18,-10)" fill="none" stroke="url(#joGradient)" stroke-width="25" stroke-linecap="round" />
@@ -37,52 +40,127 @@
         </a>
 
         <nav class="nav-links" aria-label="Navegação principal">
-          <a href="#portfolio">Portfólio</a>
-          <a href="#servicos">Serviços</a>
+          <a href="#inicio">Início</a>
+          <a href="#portfolio">Projetos</a>
+          <a href="#processo">Processo</a>
+          <a href="#stack">Stack</a>
           <a href="#contato">Contato</a>
         </nav>
 
-        <a href="#contato" class="btn btn-primary btn-sm">Falar comigo</a>
+        <a href="#contato" class="btn btn-outline-pill">Falar comigo <span aria-hidden="true">↗</span></a>
       </div>
     </header>
 
     <main id="inicio">
       <!-- HERO -->
       <section class="hero">
-        <div class="container hero-inner">
-          <p class="hero-eyebrow">DESENVOLVIMENTO DE SITES</p>
-          <h1 class="hero-title">
-            Sites que conectam seu negócio a <em class="text-accent">mais clientes.</em>
-          </h1>
-          <p class="hero-lead">
-            Desenvolvimento de sites modernos, rápidos e pensados para empresas locais gerarem
-            mais autoridade, contatos e vendas pela internet.
-          </p>
-          <div class="hero-cta">
-            <a href="#portfolio" class="btn btn-primary">Ver portfólio</a>
-            <a href="#contato" class="btn btn-ghost">Solicitar orçamento</a>
+        <div class="container">
+          <div class="hero-meta-bar">
+            <span class="meta-tag"><span class="pulse-dot" aria-hidden="true"></span> DESENVOLVEDOR WEB • SISTEMAS FULL-STACK</span>
+            <span class="meta-code">01 — PORTFÓLIO / 2026</span>
+          </div>
+
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <h1 class="hero-title">
+                Ideias em <span class="text-accent">experiências digitais</span> incríveis.
+              </h1>
+              <p class="hero-lead">
+                Código bem pensado. Sistemas rápidos. Foco em resultado.<br />
+                Olá, sou <strong>Joel Oliveira</strong> — desenvolvedor de sites e sistemas web sob medida para negócios locais.
+              </p>
+              <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-accent">Ver projetos <span aria-hidden="true">↗</span></a>
+                <a href="#processo" class="btn btn-dark">Como trabalho <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="visual-card">
+                <div class="visual-card-glow" aria-hidden="true"></div>
+                <div class="visual-window-top">
+                  <span class="win-dot"></span>
+                  <span class="win-dot"></span>
+                  <span class="win-dot"></span>
+                  <span class="win-url">joeloliveira.dev</span>
+                </div>
+                <div class="visual-center">
+                  <svg class="visual-monogram" viewBox="-10 0 215 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M58 38 V104 C58 130 43 144 23 144 C8 144 -3 136 -9 124" transform="translate(18,-10)" fill="none" stroke="url(#joGradient)" stroke-width="22" stroke-linecap="round" />
+                    <path d="M78 97 C78 66 94 27 129 27 C159 27 178 48 178 75 C178 104 158 125 131 125 C109 125 94 115 84 99" fill="none" stroke="url(#joGradient)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <div class="visual-stats">
+                    <div class="stat-pill"><span>+6</span> Projetos online</div>
+                    <div class="stat-pill"><span>100%</span> Responsivo</div>
+                  </div>
+                </div>
+                <a href="#portfolio" class="visual-badge">
+                  <span class="visual-badge-kicker">WEB • SISTEMAS • MOBILE-FIRST</span>
+                  <span class="visual-badge-title">Engenharia &amp; Design <span aria-hidden="true">↗</span></span>
+                </a>
+              </div>
+              <a href="#capacidades" class="scroll-hint">ROLE PARA EXPLORAR ↓</a>
+            </div>
+          </div>
+
+          <!-- 3-COLUMN CAPABILITIES -->
+          <div id="capacidades" class="capabilities-strip">
+            <div class="cap-head-row">
+              <div>
+                <span class="cap-kicker">FULL-STACK</span>
+                <span class="cap-sub">Plataformas web</span>
+              </div>
+              <div>
+                <span class="cap-kicker">NEGÓCIOS LOCAIS</span>
+                <span class="cap-sub">Cardápios &amp; agendas</span>
+              </div>
+              <div>
+                <span class="cap-kicker">MOBILE-FIRST</span>
+                <span class="cap-sub">Sites de alta conversão</span>
+              </div>
+            </div>
+
+            <div class="cap-cards">
+              <article class="cap-card">
+                <div class="cap-icon" aria-hidden="true">⌘</div>
+                <h3>Desenvolvimento Full-Stack</h3>
+                <p>Interfaces modernas e sistemas confiáveis, do front-end responsivo ao banco de dados.</p>
+              </article>
+
+              <article class="cap-card">
+                <div class="cap-icon" aria-hidden="true">✦</div>
+                <h3>Sistemas para Negócios</h3>
+                <p>Cardápios digitais, agendas online, CRM, fluxo de caixa e pedidos direto no WhatsApp.</p>
+              </article>
+
+              <article class="cap-card">
+                <div class="cap-icon" aria-hidden="true">◈</div>
+                <h3>Experiências Rápidas</h3>
+                <p>Páginas leves, visual profissional no celular e estrutura pensada para gerar contatos.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- PORTFÓLIO -->
-      <section id="portfolio" class="section section-light">
+      <!-- PROJETOS SELECIONADOS -->
+      <section id="portfolio" class="section">
         <div class="container">
           <div class="section-head">
             <div>
-              <p class="section-kicker">PORTFÓLIO</p>
-              <h2 class="section-title">Projetos desenvolvidos</h2>
+              <p class="section-kicker">01 / O TRABALHO</p>
+              <h2 class="section-title">Projetos <span class="text-accent">selecionados.</span></h2>
             </div>
 
             <div class="filter-tabs" role="tablist" aria-label="Filtrar por categoria">
               <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
                 Todos
               </button>
-              <button class="filter-btn" data-filter="educacao-dados" role="tab" aria-selected="false">
-                Educação &amp; Dados
-              </button>
               <button class="filter-btn" data-filter="web-negocios" role="tab" aria-selected="false">
                 Web &amp; Negócios
+              </button>
+              <button class="filter-btn" data-filter="educacao-dados" role="tab" aria-selected="false">
+                Educação &amp; Dados
               </button>
               <button class="filter-btn" data-filter="esportes" role="tab" aria-selected="false">
                 Esportes
@@ -90,73 +168,130 @@
             </div>
           </div>
 
-          <div id="projects-grid" class="projects-grid"></div>
+          <div id="projects-grid" class="projects-bento"></div>
         </div>
       </section>
 
-      <!-- SERVIÇOS -->
-      <section id="servicos" class="section section-navy">
-        <div class="container split-layout">
-          <div>
-            <p class="section-kicker kicker-blue">SERVIÇOS</p>
-            <h2 class="section-title title-white">O que entrego para a sua empresa</h2>
-            <p class="split-desc">
-              Projetos sob medida com carregamento rápido, visual profissional no celular e
-              estrutura pronta para o cliente entrar em contato com você.
-            </p>
-          </div>
+      <!-- PROCESSO / COMO PENSO -->
+      <section id="processo" class="section">
+        <div class="container">
+          <div class="process-box">
+            <div class="process-copy">
+              <p class="section-kicker">02 / COMO EU TRABALHO</p>
+              <h2 class="section-title">Do conceito ao <span class="text-accent">produto real.</span></h2>
+              <p class="process-desc">
+                Clareza estratégica, design expressivo e engenharia sólida — do primeiro rascunho até a publicação em produção.
+              </p>
+            </div>
 
-          <div class="editorial-list">
-            <article class="editorial-row">
-              <span class="row-num">01</span>
-              <div class="row-content">
-                <h3>Sites Institucionais &amp; Landing Pages</h3>
-                <p>
-                  Páginas claras e rápidas para apresentar sua empresa, passar credibilidade no
-                  Google e direcionar clientes para o seu WhatsApp.
-                </p>
+            <div class="process-preview" aria-hidden="true">
+              <div class="preview-card">
+                <div class="preview-header">
+                  <span>• Workspace do projeto</span>
+                  <span class="preview-live">• LIVE PREVIEW</span>
+                </div>
+                <div class="preview-cols">
+                  <div class="preview-mini">
+                    <span>VISÃO GERAL</span>
+                    <div class="preview-bar"></div>
+                  </div>
+                  <div class="preview-mini">
+                    <span>FLUXOS</span>
+                    <div class="preview-bar short"></div>
+                  </div>
+                  <div class="preview-mini">
+                    <span>MÉTRICAS</span>
+                    <div class="preview-bar"></div>
+                  </div>
+                </div>
               </div>
-            </article>
+            </div>
 
-            <article class="editorial-row">
-              <span class="row-num">02</span>
-              <div class="row-content">
-                <h3>Cardápios Digitais &amp; Pedidos Diretos</h3>
-                <p>
-                  Catálogo online com carrinho, busca de endereço por CEP, envio do pedido pronto
-                  para o WhatsApp sem taxas e painel para você editar preços e produtos.
-                </p>
+            <div class="process-steps">
+              <div class="step-item">
+                <h3>Descobrir <span class="text-accent">→</span></h3>
+                <p>Entender a oportunidade e o público</p>
               </div>
-            </article>
-
-            <article class="editorial-row">
-              <span class="row-num">03</span>
-              <div class="row-content">
-                <h3>Sistemas Web &amp; Painéis de Gestão</h3>
-                <p>
-                  Aplicações web sob medida e painéis analíticos para organizar informações,
-                  acompanhar resultados e facilitar a rotina do seu negócio.
-                </p>
+              <div class="step-item">
+                <h3>Construir <span class="text-accent">→</span></h3>
+                <p>Tornar o complexo simples de usar</p>
               </div>
-            </article>
+              <div class="step-item">
+                <h3>Refinar <span class="text-accent">→</span></h3>
+                <p>Cuidar de cada interação e detalhe</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTATO -->
-      <section id="contato" class="section section-light">
-        <div class="container contact-wrap">
-          <div>
-            <p class="section-kicker">CONTATO</p>
-            <h2 class="section-title">Vamos tirar seu projeto do papel?</h2>
-            <p class="contact-sub">
-              Envie um e-mail contando o que você precisa para receber uma proposta sob medida.
-            </p>
+      <!-- TOOLKIT & PRÁTICA -->
+      <section id="stack" class="section">
+        <div class="container toolkit-grid">
+          <div class="toolkit-col">
+            <p class="section-kicker">03 / FERRAMENTAS</p>
+            <h2 class="section-title-sm">Tecnologias do <span class="text-accent">dia a dia.</span></h2>
+            <div class="tech-pills">
+              <span class="tech-pill active">React</span>
+              <span class="tech-pill">Next.js</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">Supabase</span>
+              <span class="tech-pill">Firebase</span>
+              <span class="tech-pill">Tailwind CSS</span>
+              <span class="tech-pill">APIs &amp; WhatsApp</span>
+              <span class="tech-pill">UI Engineering</span>
+            </div>
           </div>
-          <div class="contact-actions">
-            <a href="mailto:contato@joeloliveira.dev?subject=Or%C3%A7amento%20de%20Site" class="btn btn-primary">
-              contato@joeloliveira.dev
-            </a>
+
+          <div class="toolkit-col">
+            <p class="section-kicker">04 / PRÁTICA &amp; MÉTRICAS</p>
+            <h2 class="section-title-sm">Linguagens mais <span class="text-accent">usadas.</span></h2>
+            <div id="github-metrics" class="github-metrics-card" aria-live="polite"></div>
+
+            <ul class="practice-list">
+              <li>
+                <span class="practice-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Engenharia focada em produto</strong>
+                  <p>Unindo senso de design e profundidade técnica para gerar resultado real.</p>
+                </div>
+              </li>
+              <li>
+                <span class="practice-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Desenvolvimento ponta a ponta</strong>
+                  <p>Do protótipo interativo à aplicação publicada e rodando em produção.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section id="contato" class="section">
+        <div class="container">
+          <div class="cta-banner">
+            <div>
+              <p class="section-kicker">05 / COMECE ALGO NOVO</p>
+              <h2 class="cta-title">
+                Tem uma grande ideia?<br />
+                <span class="text-accent">Vamos tirar do papel.</span>
+              </h2>
+              <p class="cta-sub">
+                Aberto a novos projetos digitais, sites institucionais e sistemas sob medida.
+              </p>
+            </div>
+            <div class="cta-actions">
+              <a
+                href="mailto:contato@joeloliveira.dev?subject=Or%C3%A7amento%20de%20Projeto"
+                class="btn btn-accent btn-lg"
+              >
+                Vamos trabalhar juntos <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -166,9 +301,13 @@
       <div class="container footer-inner">
         <div class="footer-brand">
           <strong>Joel Oliveira<span class="dot">.</span></strong>
-          <span>DESENVOLVIMENTO DE SITES</span>
+          <span>WEB • SISTEMAS • FULL-STACK • MOBILE-FIRST</span>
         </div>
-        <span class="footer-copy">© 2026 Joel Oliveira</span>
+        <div class="footer-links">
+          <a href="https://github.com/joeloliveira123" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+          <a href="mailto:contato@joeloliveira.dev">EMAIL ↗</a>
+          <a href="#inicio">TOPO ↑</a>
+        </div>
       </div>
     </footer>
 
@@ -200,7 +339,7 @@
           </div>
 
           <div id="modal-live-wrap" class="live-wrap hidden">
-            <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
               Acessar projeto online
             </a>
           </div>
