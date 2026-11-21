@@ -92,7 +92,7 @@ const PROJECTS = [
       "Agendamento em tempo real com bloqueio de horários e comprovante no WhatsApp",
       "Painel da Sua Clínica com controle de clientes e faturamento previsto"
     ],
-    liveUrl: "https://odonto-agenda-phi.vercel.app",
+    liveUrl: "https://joeloliveira-odonto.vercel.app",
     urlLabel: "Online"
   },
   {
@@ -112,7 +112,7 @@ const PROJECTS = [
       "Agenda com bloqueio de horários e confirmação direta no WhatsApp",
       "Painel da Sua Barbearia com controle de clientes e faturamento previsto"
     ],
-    liveUrl: "https://barbearia-agenda-sigma.vercel.app",
+    liveUrl: "https://joeloliveira-barbearia.vercel.app",
     urlLabel: "Online"
   },
   {
@@ -132,7 +132,7 @@ const PROJECTS = [
       "Detecção automática de Lucro Líquido ou Prejuízo no período",
       "Personalização ao vivo com nome e cor da empresa + exportação CSV"
     ],
-    liveUrl: "https://crm-caixa-ten.vercel.app",
+    liveUrl: "https://joeloliveira-crm.vercel.app",
     urlLabel: "Online"
   }
 ];
