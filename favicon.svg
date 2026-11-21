@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="52" fill="#101D32" />
+  <defs>
+    <linearGradient id="joFavGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="45%" stop-color="#7DD3FC" />
+      <stop offset="100%" stop-color="#0066FF" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(24, 40)">
+    <path d="M58 38 V104 C58 130 43 144 23 144 C8 144 -3 136 -9 124" transform="translate(18,-10)" fill="none" stroke="url(#joFavGrad)" stroke-width="25" stroke-linecap="round" />
+    <path d="M78 97 C78 66 94 27 129 27 C159 27 178 48 178 75 C178 104 158 125 131 125 C109 125 94 115 84 99" fill="none" stroke="url(#joFavGrad)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
