@@ -100,7 +100,7 @@ const PROJECTS = [
     title: "Sua Barbearia — Agenda & Clube Mensal",
     category: "web-negocios",
     categoryLabel: "Web & Negócios",
-    status: "MVP Local",
+    status: "Online · Vercel",
     featured: false,
     tagline:
       "Site e sistema de agendamento online para barbearias com clube de assinatura e personalização ao vivo.",
@@ -112,8 +112,8 @@ const PROJECTS = [
       "Agenda com bloqueio de horários e confirmação direta no WhatsApp",
       "Painel da Sua Barbearia com controle de clientes e faturamento previsto"
     ],
-    liveUrl: "http://127.0.0.1:4176",
-    urlLabel: "Demo"
+    liveUrl: "https://barbearia-agenda-sigma.vercel.app",
+    urlLabel: "Online"
   }
 ];
 
