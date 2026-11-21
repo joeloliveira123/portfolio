@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joel Oliveira. — Desenvolvimento de Sites</title>
+    <meta
+      name="description"
+      content="Joel Oliveira — Desenvolvimento de sites modernos, rápidos e estratégicos para negócios locais."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a href="#inicio" class="brand" aria-label="Joel Oliveira — Início">
+          <svg class="jo-logo" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="joGrad" x1="28" y1="6" x2="58" y2="34" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#3B82F6" />
+                <stop offset="100%" stop-color="#2563EB" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M27 8V23.5C27 28.7467 22.7467 33 17.5 33C12.2533 33 8 28.7467 8 23.5"
+              stroke="#FFFFFF"
+              stroke-width="6.5"
+              stroke-linecap="round"
+            />
+            <circle cx="42.5" cy="20.5" r="12.5" stroke="url(#joGrad)" stroke-width="6.5" />
+          </svg>
+          <span class="brand-name">Joel Oliveira<span class="dot">.</span></span>
+        </a>
+
+        <nav class="nav-links" aria-label="Navegação principal">
+          <a href="#portfolio">Portfólio</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a href="#contato" class="btn btn-primary btn-sm">Falar comigo</a>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <p class="hero-eyebrow">DESENVOLVIMENTO DE SITES</p>
+          <h1 class="hero-title">
+            Sites que conectam seu negócio a <span class="text-accent">mais clientes.</span>
+          </h1>
+          <p class="hero-lead">
+            Desenvolvimento de sites modernos, rápidos e pensados para empresas locais gerarem
+            mais autoridade, contatos e vendas pela internet.
+          </p>
+          <div class="hero-cta">
+            <a href="#portfolio" class="btn btn-primary">Ver portfólio</a>
+            <a href="#contato" class="btn btn-ghost">Solicitar orçamento</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFÓLIO -->
+      <section id="portfolio" class="section section-light">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">PORTFÓLIO</p>
+              <h2 class="section-title">Projetos desenvolvidos</h2>
+            </div>
+
+            <div class="filter-tabs" role="tablist" aria-label="Filtrar por categoria">
+              <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                Todos
+              </button>
+              <button class="filter-btn" data-filter="educacao-dados" role="tab" aria-selected="false">
+                Educação &amp; Dados
+              </button>
+              <button class="filter-btn" data-filter="web-negocios" role="tab" aria-selected="false">
+                Web &amp; Negócios
+              </button>
+              <button class="filter-btn" data-filter="esportes" role="tab" aria-selected="false">
+                Esportes
+              </button>
+            </div>
+          </div>
+
+          <div id="projects-grid" class="projects-grid"></div>
+        </div>
+      </section>
+
+      <!-- SERVIÇOS -->
+      <section id="servicos" class="section section-navy">
+        <div class="container split-layout">
+          <div>
+            <p class="section-kicker kicker-blue">SERVIÇOS</p>
+            <h2 class="section-title title-white">O que entrego para a sua empresa</h2>
+            <p class="split-desc">
+              Projetos sob medida com carregamento rápido, visual profissional no celular e
+              estrutura pronta para o cliente entrar em contato com você.
+            </p>
+          </div>
+
+          <div class="editorial-list">
+            <article class="editorial-row">
+              <span class="row-num">01</span>
+              <div class="row-content">
+                <h3>Sites Institucionais &amp; Landing Pages</h3>
+                <p>
+                  Páginas claras e rápidas para apresentar sua empresa, passar credibilidade no
+                  Google e direcionar clientes para o seu WhatsApp.
+                </p>
+              </div>
+            </article>
+
+            <article class="editorial-row">
+              <span class="row-num">02</span>
+              <div class="row-content">
+                <h3>Cardápios Digitais &amp; Pedidos Diretos</h3>
+                <p>
+                  Catálogo online com carrinho, busca de endereço por CEP, envio do pedido pronto
+                  para o WhatsApp sem taxas e painel para você editar preços e produtos.
+                </p>
+              </div>
+            </article>
+
+            <article class="editorial-row">
+              <span class="row-num">03</span>
+              <div class="row-content">
+                <h3>Sistemas Web &amp; Painéis de Gestão</h3>
+                <p>
+                  Aplicações web sob medida e painéis analíticos para organizar informações,
+                  acompanhar resultados e facilitar a rotina do seu negócio.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section id="contato" class="section section-light">
+        <div class="container contact-wrap">
+          <div>
+            <p class="section-kicker">CONTATO</p>
+            <h2 class="section-title">Vamos tirar seu projeto do papel?</h2>
+            <p class="contact-sub">
+              Envie um e-mail contando o que você precisa para receber uma proposta sob medida.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a href="mailto:contato@joeloliveira.dev?subject=Or%C3%A7amento%20de%20Site" class="btn btn-primary">
+              contato@joeloliveira.dev
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <strong>Joel Oliveira<span class="dot">.</span></strong>
+          <span>DESENVOLVIMENTO DE SITES</span>
+        </div>
+        <span class="footer-copy">© 2026 Joel Oliveira</span>
+      </div>
+    </footer>
+
+    <!-- MODAL DE DETALHES -->
+    <div id="project-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="modal-dialog">
+        <button class="modal-close" id="modal-close" aria-label="Fechar detalhes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="modal-header">
+          <div class="modal-badges" id="modal-badges"></div>
+          <h2 id="modal-title"></h2>
+          <p id="modal-tagline" class="modal-tagline"></p>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-block">
+            <h3>Sobre o Projeto</h3>
+            <p id="modal-description"></p>
+          </div>
+
+          <div class="modal-block">
+            <h3>Principais Entregas</h3>
+            <ul id="modal-features" class="feature-list"></ul>
+          </div>
+
+          <div id="modal-live-wrap" class="live-wrap hidden">
+            <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Acessar projeto online
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
