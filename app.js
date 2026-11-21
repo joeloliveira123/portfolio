@@ -114,6 +114,26 @@ const PROJECTS = [
     ],
     liveUrl: "https://barbearia-agenda-sigma.vercel.app",
     urlLabel: "Online"
+  },
+  {
+    id: "crm-caixa",
+    title: "Sua Empresa — CRM, ROI & Fluxo de Caixa",
+    category: "web-negocios",
+    categoryLabel: "Web & Negócios",
+    status: "Online · Vercel",
+    featured: false,
+    tagline:
+      "Painel executivo integrado de Funil de Vendas (CRM), ROI, ranking de vendedores, perdas e Fluxo de Caixa.",
+    description:
+      "Sistema comercial e financeiro completo para PMEs. Mostra em tempo real quem entrou, quem vendeu, quem não fechou (com motivo da perda), ROI sobre marketing, Lucro Líquido ou Prejuízo, Ticket Médio e extrato completo com exportação para Excel (CSV).",
+    highlights: [
+      "Funil Kanban de 5 etapas com integração automática ao Fluxo de Caixa",
+      "Ranking de quem vendeu, lista de perdas e cálculo automático de ROI",
+      "Detecção automática de Lucro Líquido ou Prejuízo no período",
+      "Personalização ao vivo com nome e cor da empresa + exportação CSV"
+    ],
+    liveUrl: "https://crm-caixa-ten.vercel.app",
+    urlLabel: "Online"
   }
 ];
 
