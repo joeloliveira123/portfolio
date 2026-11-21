@@ -15,6 +15,8 @@ const PROJECTS = [
       "Monitoramento de frequência escolar (mínimo 75% e Pé-de-Meia 80%)",
       "Integrado a modelo analítico Power BI com relatórios completos"
     ],
+    previewImage: "./previews/boletim-inteligente.webp",
+    previewAlt: "Tela inicial do site Boletim Inteligente 2026",
     liveUrl: "https://boletim-inteligente-2026.vercel.app",
     urlLabel: "Online"
   },
@@ -34,6 +36,8 @@ const PROJECTS = [
       "Navegação rápida e responsiva para celulares e computadores",
       "Publicado em produção com carregamento instantâneo"
     ],
+    previewImage: "./previews/semente-da-multiplicacao.webp",
+    previewAlt: "Tela inicial do site Semente da Multiplicação",
     liveUrl: "https://semente-site.vercel.app",
     urlLabel: "Online"
   },
@@ -53,6 +57,8 @@ const PROJECTS = [
       "Salão com mapa de mesas, comandas, QR Code validado no servidor, rodízio e reservas",
       "Caixa, controle de estoque, CRM com consentimento LGPD, relatórios e editor de panfletos PNG"
     ],
+    previewImage: "./previews/churrascaria-digital.webp",
+    previewAlt: "Tela inicial do site Churrascaria Digital — Fogo & Brasa",
     liveUrl: "https://churrascaria-digital.vercel.app",
     urlLabel: "Online"
   },
@@ -73,6 +79,8 @@ const PROJECTS = [
       "Busca automática de endereço por CEP integrada à ViaCEP e BrasilAPI",
       "Painel administrativo completo com Supabase Auth, RLS e fallback demonstrativo"
     ],
+    previewImage: "./previews/brasa-e-corte.webp",
+    previewAlt: "Tela inicial do site Brasa & Corte — Gastronomia na Brasa",
     liveUrl: "https://brasa-e-corte.vercel.app",
     urlLabel: "Online"
   },
@@ -92,6 +100,8 @@ const PROJECTS = [
       "Placar eletrônico com cronômetro de tempo técnico e registro de scout",
       "Publicado em produção com alto desempenho na Vercel"
     ],
+    previewImage: "./previews/quadra-lab.webp",
+    previewAlt: "Tela inicial do sistema Quadra Lab Enterprise",
     liveUrl: "https://quadra-lab.vercel.app",
     urlLabel: "Online"
   },
@@ -112,6 +122,8 @@ const PROJECTS = [
       "Agendamento em tempo real com bloqueio de horários e comprovante no WhatsApp",
       "Painel da Sua Clínica com controle de clientes e faturamento previsto"
     ],
+    previewImage: "./previews/sua-odontologia.webp",
+    previewAlt: "Tela inicial do site Sua Odontologia",
     liveUrl: "https://joeloliveira-odonto.vercel.app",
     urlLabel: "Online"
   },
@@ -132,6 +144,8 @@ const PROJECTS = [
       "Agenda com bloqueio de horários e confirmação direta no WhatsApp",
       "Painel da Sua Barbearia com controle de clientes e faturamento previsto"
     ],
+    previewImage: "./previews/sua-barbearia.webp",
+    previewAlt: "Tela inicial do site Sua Barbearia",
     liveUrl: "https://joeloliveira-barbearia.vercel.app",
     urlLabel: "Online"
   },
@@ -152,6 +166,8 @@ const PROJECTS = [
       "Detecção automática de Lucro Líquido ou Prejuízo no período",
       "Personalização ao vivo com nome e cor da empresa + exportação CSV"
     ],
+    previewImage: "./previews/crm-caixa.webp",
+    previewAlt: "Tela inicial do sistema Sua Empresa — CRM, ROI & Fluxo de Caixa",
     liveUrl: "https://joeloliveira-crm.vercel.app",
     urlLabel: "Online"
   }
@@ -166,12 +182,73 @@ const modalClose = document.getElementById("modal-close");
 const modalBadges = document.getElementById("modal-badges");
 const modalTitle = document.getElementById("modal-title");
 const modalTagline = document.getElementById("modal-tagline");
+const modalPreviewWrap = document.getElementById("modal-preview-wrap");
+const modalPreviewImg = document.getElementById("modal-preview-img");
 const modalDescription = document.getElementById("modal-description");
 const modalFeatures = document.getElementById("modal-features");
 const modalLiveWrap = document.getElementById("modal-live-wrap");
 const modalLiveLink = document.getElementById("modal-live-link");
 
 let activeFilter = "all";
+
+/**
+ * Determine the bento layout variant so rows remain balanced across all filter states.
+ */
+function getCardLayout(idx, total) {
+  if (total === 1) return "wide";
+  if (total >= 3 && idx === 0) return "featured";
+  if (total >= 3 && (idx === 1 || idx === 2)) return "compact-split";
+  if (total > 3 && (total - 3) % 2 === 1 && idx === total - 1) return "wide";
+  return "standard";
+}
+
+function buildPreviewHtml(project, layout) {
+  const frameClass =
+    layout === "compact-split"
+      ? "card-mini-visual"
+      : layout === "wide"
+        ? "card-preview is-wide-shot"
+        : layout === "standard"
+          ? "card-preview is-thumb"
+          : "card-preview";
+  return `
+    <div class="${frameClass}">
+      <img
+        src="${project.previewImage}"
+        alt="${project.previewAlt || `Tela inicial do projeto ${project.title}`}"
+        class="site-preview-img"
+        decoding="async"
+      />
+    </div>
+  `;
+}
+
+function buildCardInfoHtml(project, numLabel, statusClass) {
+  return `
+    <div class="card-top">
+      <span class="card-category">${numLabel} / ${project.categoryLabel}</span>
+      <span class="${statusClass}">${project.status}</span>
+    </div>
+    <h3 class="card-title">${project.title}</h3>
+    <p class="card-tagline">${project.tagline}</p>
+  `;
+}
+
+function buildCardFooterHtml(project, displayHost) {
+  return `
+    <div class="card-footer">
+      <a
+        href="${project.liveUrl}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-visit-link"
+      >
+        ${displayHost} <span aria-hidden="true">↗</span>
+      </a>
+      <button type="button" class="card-details-btn">Detalhes</button>
+    </div>
+  `;
+}
 
 function renderProjects() {
   const filtered = PROJECTS.filter(
@@ -182,107 +259,45 @@ function renderProjects() {
 
   filtered.forEach((project, idx) => {
     const card = document.createElement("article");
-    const isFeatured = idx === 0;
+    const layout = getCardLayout(idx, filtered.length);
 
     const statusClass = project.urlLabel === "Online" ? "status-dot" : "status-dot local";
     const displayHost = project.liveUrl.replace(/^https?:\/\//, "");
     const numLabel = String(idx + 1).padStart(2, "0");
 
-    const previewHtml = isFeatured
-      ? `
-        <div class="card-preview" aria-hidden="true">
-          <div class="mockup-phone">
-            <div class="mockup-orb"></div>
-            <div class="mockup-line accent"></div>
-            <div class="mockup-line"></div>
-            <div class="mockup-line"></div>
+    const previewHtml = buildPreviewHtml(project, layout);
+    const infoHtml = buildCardInfoHtml(project, numLabel, statusClass);
+    const footerHtml = buildCardFooterHtml(project, displayHost);
+
+    card.className = layout === "standard" ? "project-card" : `project-card is-${layout}`;
+
+    if (layout === "compact-split") {
+      card.innerHTML = `
+        <div class="compact-split-body">
+          ${previewHtml}
+          <div class="compact-split-info">${infoHtml}</div>
+        </div>
+        ${footerHtml}
+      `;
+    } else if (layout === "wide") {
+      card.innerHTML = `
+        <div class="wide-card-body">
+          ${previewHtml}
+          <div class="wide-card-content">
+            <div>${infoHtml}</div>
+            ${footerHtml}
           </div>
-          <div class="mockup-phone dark">
-            <div class="mockup-orb"></div>
-            <div class="mockup-line accent"></div>
-            <div class="mockup-line"></div>
-            <div class="mockup-line"></div>
-          </div>
         </div>
-      `
-      : idx === 1
-        ? `
-        <div class="card-mini-visual ring-visual" aria-hidden="true">
-          <div class="blue-ring"></div>
+      `;
+    } else {
+      card.innerHTML = `
+        <div>
+          ${previewHtml}
+          ${infoHtml}
         </div>
-      `
-        : idx === 2
-          ? `
-        <div class="card-mini-visual chart-visual" aria-hidden="true">
-          <svg viewBox="0 0 120 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 46 C22 44, 28 22, 44 26 C58 30, 66 12, 82 18 C96 24, 104 8, 114 10" stroke="#60A5FA" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M6 46 C22 44, 28 22, 44 26 C58 30, 66 12, 82 18 C96 24, 104 8, 114 10 L114 54 L6 54 Z" fill="url(#miniChartFill)"/>
-            <defs>
-              <linearGradient id="miniChartFill" x1="0" y1="8" x2="0" y2="54" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
-                <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-      `
-          : "";
-
-    card.className = isFeatured
-      ? "project-card is-featured"
-      : idx === 1 || idx === 2
-        ? "project-card is-compact-split"
-        : "project-card";
-
-    card.innerHTML = idx === 1 || idx === 2
-      ? `
-      <div class="compact-split-body">
-        ${previewHtml}
-        <div class="compact-split-info">
-          <div class="card-top">
-            <span class="card-category">${numLabel} / ${project.categoryLabel}</span>
-            <span class="${statusClass}">${project.status}</span>
-          </div>
-          <h3 class="card-title">${project.title}</h3>
-          <p class="card-tagline">${project.tagline}</p>
-        </div>
-      </div>
-
-      <div class="card-footer">
-        <a
-          href="${project.liveUrl}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card-visit-link"
-        >
-          ${displayHost} <span aria-hidden="true">↗</span>
-        </a>
-        <button type="button" class="card-details-btn">Detalhes</button>
-      </div>
-    `
-      : `
-      <div>
-        ${previewHtml}
-        <div class="card-top">
-          <span class="card-category">${numLabel} / ${project.categoryLabel}</span>
-          <span class="${statusClass}">${project.status}</span>
-        </div>
-        <h3 class="card-title">${project.title}</h3>
-        <p class="card-tagline">${project.tagline}</p>
-      </div>
-
-      <div class="card-footer">
-        <a
-          href="${project.liveUrl}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card-visit-link"
-        >
-          ${displayHost} <span aria-hidden="true">↗</span>
-        </a>
-        <button type="button" class="card-details-btn">Detalhes</button>
-      </div>
-    `;
+        ${footerHtml}
+      `;
+    }
 
     card.querySelector(".card-visit-link").addEventListener("click", (event) => {
       event.stopPropagation();
@@ -307,6 +322,15 @@ function openModal(project) {
   `;
   modalTitle.textContent = project.title;
   modalTagline.textContent = project.tagline;
+
+  if (project.previewImage && modalPreviewWrap && modalPreviewImg) {
+    modalPreviewImg.src = project.previewImage;
+    modalPreviewImg.alt = project.previewAlt || `Tela inicial do projeto ${project.title}`;
+    modalPreviewWrap.classList.remove("hidden");
+  } else if (modalPreviewWrap) {
+    modalPreviewWrap.classList.add("hidden");
+  }
+
   modalDescription.textContent = project.description;
   modalFeatures.innerHTML = project.highlights.map((item) => `<li>${item}</li>`).join("");
 
