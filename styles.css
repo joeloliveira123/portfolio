@@ -12,6 +12,7 @@
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
+  --font-display: "Playfair Display", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
 }
 
@@ -83,9 +84,10 @@ button:focus-visible {
 }
 
 .brand-name {
-  font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: -0.025em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.28rem;
+  letter-spacing: -0.02em;
 }
 
 .nav-links {
@@ -170,11 +172,17 @@ button:focus-visible {
 
 .hero-title {
   margin: 0 0 1.35rem;
-  font-weight: 800;
-  font-size: clamp(2.5rem, 5.2vw, 4rem);
-  line-height: 1.07;
-  letter-spacing: -0.035em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.65rem, 5.4vw, 4.3rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   color: var(--white);
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 500;
 }
 
 .hero-lead {
@@ -228,9 +236,11 @@ button:focus-visible {
 
 .section-title {
   margin: 0;
-  font-weight: 700;
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3.2vw, 2.45rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: var(--navy);
 }
 
@@ -331,10 +341,12 @@ button:focus-visible {
 }
 
 .card-title {
-  margin: 0 0 0.5rem;
-  font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.025em;
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--navy);
 }
 
@@ -422,8 +434,10 @@ button:focus-visible {
 
 .row-content h3 {
   margin: 0 0 0.45rem;
-  font-size: 1.12rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--white);
 }
 
@@ -472,8 +486,10 @@ button:focus-visible {
 }
 
 .footer-brand strong {
+  font-family: var(--font-display);
   color: var(--white);
-  font-size: 0.98rem;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .footer-brand span:last-child {
@@ -565,8 +581,10 @@ button:focus-visible {
 
 .modal-header h2 {
   margin: 0 0 0.4rem;
-  font-weight: 700;
-  font-size: 1.65rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
 }
 
 .modal-tagline {
